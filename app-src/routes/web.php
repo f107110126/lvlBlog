@@ -101,3 +101,7 @@ Route::patch('/tasks/{task}', 'ProjectTasksController@update');
  * Route::delete(     '/projects/{project}', 'ProjectController@destroy');
  * Route::   get('/projects/{project}/edit',    'ProjectController@edit');
  */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
