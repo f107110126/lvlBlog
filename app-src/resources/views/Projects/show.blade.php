@@ -6,13 +6,13 @@
     <div class="content">{{ $project->description }}</div>
 
     <p>
-        <a href="../projects/{{ $project->id }}/edit">Edit</a>
+        <a href="{{ route('projects.edit', $project->id) }}">Edit</a>
     </p>
 
     @if($project->tasks->count())
         <div class="box">
             @foreach($project->tasks as $task)
-                <form method="post" action="../tasks/{{ $task->id }}">
+                <form method="post" action="{{ url("tasks/{$task->id}") }}">
                     @csrf
                     @method('PATCH')
                     <label class="checkbox {{ $task->completed ? 'is-complete' : '' }}" for="completed{{ $task->id }}">
@@ -26,7 +26,7 @@
         </div>
     @endif
 
-    <form method="post" action="../projects/{{ $project->id }}/tasks" class="box">
+    <form method="post" action="{{ url("/projects/{$project->id}/tasks") }}" class="box">
         @csrf
         <div class="field">
             <label class="lebel" for="description">New Task</label>
