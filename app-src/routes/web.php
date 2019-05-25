@@ -79,6 +79,8 @@ Route::resource('projects', 'ProjectsController');
 
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
+Route::get('/upload', 'UploadController@index');
+Route::post('/upload', 'UploadController@posted');
 /*
  *  GET|HEAD  | projects                | projects.index   | App\Http\Controllers\ProjectController@index   | web    |
  *  POST      | projects                | projects.store   | App\Http\Controllers\ProjectController@store   | web    |
