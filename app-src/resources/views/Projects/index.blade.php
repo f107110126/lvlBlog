@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Laravel tutorial @yield('title','')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -65,37 +65,24 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
 
     <div class="content">
         <div class="title m-b-md">
-            Laravel
+            Projects
         </div>
 
-        <h1>My {{$foo}} Website</h1>
-
-        <p>request title is {{$bar}}</p>
-        <p>script is {{$script}}</p>
-        <p>script should use {!! $script !!}</p>
-
         <ul>
-            @foreach($tasks as $task)
-                <li>{{$task}}</li>
+            @foreach($projects as $project)
+                <li>
+                    <a href="projects/{{ $project->id }}">
+                        {{ $project->title }}
+                    </a>
+                </li>
             @endforeach
         </ul>
+
         <div class="links">
+            <a href=".">home</a>
             <a href="about">about us</a>
             <a href="contact">contact</a>
             <a href="https://laravel.com/docs">Docs</a>
