@@ -26,7 +26,8 @@ class UploadController extends Controller
             // print $file->getClientOriginalName();
             $uploadName = $file->getClientOriginalName();
             $file->move('uploads', $uploadName);
-            return redirect('uploads/'.$uploadName);
+            // return redirect('uploads/'.$uploadName); // this is work too
+            return redirect('/uploads/'.$uploadName);
         } else {
             return 'no file specified.';
         }
