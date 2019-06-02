@@ -107,3 +107,11 @@ Route::post('/upload', 'UploadController@posted');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/ajaxSample', function () {
+    return view('AJAXSample.index');
+});
+
+Route::get('/getmsg', 'AJAXController@index');
+Route::post('/setCookie', 'AJAXController@setCookie');
+Route::post('/getCookie', 'AJAXController@getCookie');
