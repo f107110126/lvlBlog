@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,13 @@ class VerificationController extends Controller
     */
 
     use VerifiesEmails;
+
+    /**
+     * Where to redirect users when the intended url fails.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::CLIENT_HOME;
 
     /**
      * Create a new controller instance.
