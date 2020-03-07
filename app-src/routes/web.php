@@ -11,10 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/')->namespace('Client')->name('clients.')->group(function () {
+
+    Route::get('/', function () {
+        return view('clients.welcome');
+    });
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
 });
+Route::prefix('/admins')->namespace('Admin')->name('admins.')->group(function () {
 
-Auth::routes();
+    Route::get('/', function () {
+        return view('admins.welcome');
+    });
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+});
